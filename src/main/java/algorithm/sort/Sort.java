@@ -1,9 +1,15 @@
 package algorithm.sort;
 
-import java.util.Objects;
+import java.util.*;
 
+/**
+ * 常用排序算法模板
+ * */
 public class Sort {
 
+    /**
+    * 1. 冒泡排序
+    * */
     public static int[] bubbleSort(int[] array) {
         Objects.requireNonNull(array);
         for (int i = 0; i < array.length - 1; ++i) {
@@ -14,6 +20,9 @@ public class Sort {
         return array;
     }
 
+    /**
+     * 2. 插入排序
+     * */
     public static int[] insertionSort(int[] array) {
         Objects.requireNonNull(array);
         for (int i = 1; i < array.length; ++i) {
@@ -28,6 +37,9 @@ public class Sort {
         return array;
     }
 
+    /**
+     * 3. 选择排序
+     * */
     public static int[] selectSort(int[] array) {
         Objects.requireNonNull(array);
         for (int i = 0; i < array.length - 1; ++i) {
@@ -44,6 +56,9 @@ public class Sort {
         return array;
     }
 
+    /**
+     * 4. 堆排序
+     * */
     public static int[] heapSort(int[] array) {
         for (int i = array.length / 2 - 1; i >= 0; --i) {
             heapify(array, i, array.length);
@@ -58,6 +73,9 @@ public class Sort {
         return array;
     }
 
+    /**
+     * 5. 快速排序
+     * */
     public static void quickSort(int[] array, int left, int right) {
         if (left >= right) return;
         int pivotIndex = left;
@@ -66,6 +84,9 @@ public class Sort {
         quickSort(array, pivotIndex + 1, right);
     }
 
+    /**
+     * 6. 归并排序
+     * */
     public static void mergeSort(int[] array, int left, int right, int[] tmpArray) {
         if (right - left >= 2) {
             int mid = left + (right - left) / 2;
@@ -169,5 +190,8 @@ public class Sort {
         for (int i = 0; i < array4.length; ++i) {
             System.out.print(array4[i] + " ");
         }
+
+        List<Integer> arr = new ArrayList<>();
+        int[] a = arr.stream().mapToInt(r -> r).toArray();
     }
 }
